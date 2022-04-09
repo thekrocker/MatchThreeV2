@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace MatchThree
@@ -13,10 +14,21 @@ namespace MatchThree
             _yIndex = y;
             _board = board;
         }
-        // Update is called once per frame
-        void Update()
+
+
+        private void OnMouseDown()
         {
-        
+            _board.ClickTile(this);
+        }
+
+        private void OnMouseEnter()
+        {
+            _board.DragTile(this);
+        }
+
+        private void OnMouseUp()
+        {
+            _board.ReleaseTile();
         }
     }
 }
