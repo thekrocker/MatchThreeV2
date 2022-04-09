@@ -6,6 +6,7 @@ namespace MatchThree
 {
     public class Board : MonoBehaviour
     {
+        public int totalGamePieceCount;
         [Header("Board Settings")] [SerializeField]
         private BoardData boardData;
 
@@ -23,14 +24,29 @@ namespace MatchThree
 
         private Tile _clickedTile;
         private Tile _targetTile;
-
-
+        
         void Start()
         {
-            _allTiles = new Tile[boardData.width, boardData.height];
-            _allGamePieces = new GamePiece[boardData.width, boardData.height];
+            SetBoardItem2DArrays();
             SetupTiles();
             FillRandomGamePieces();
+        }
+        
+
+        void OnGUI()
+        {
+            GUI.Label(
+                new Rect(10, 10, 100, 50), 
+                "Total GP: " + _allGamePieces.Length  + "\n" + 
+                "Width: " + boardData.Width +"\n" + 
+                "Height: " + boardData.Height
+                );
+
+        }
+        private void SetBoardItem2DArrays()
+        {
+            _allTiles = new Tile[boardData.Width, boardData.Height];
+            _allGamePieces = new GamePiece[boardData.Width, boardData.Height];
         }
 
         private void SetupTiles()
@@ -40,9 +56,9 @@ namespace MatchThree
                 transform = { parent = transform }
             };
 
-            for (int i = 0; i < boardData.width; i++)
+            for (int i = 0; i < boardData.Width; i++)
             {
-                for (int j = 0; j < boardData.height; j++)
+                for (int j = 0; j < boardData.Height; j++)
                 {
                     var tileGO = Instantiate(tilePrefab, new Vector3(i, j, 0), Quaternion.identity);
 
@@ -72,9 +88,8 @@ namespace MatchThree
 
         private bool IsWithinBounds(int x, int y)
         {
-            return (x >= 0 && x < boardData.width && y >= 0 && y < boardData.height);
+            return (x >= 0 && x < boardData.Width && y >= 0 && y < boardData.Height);
         }
-
 
         private void FillRandomGamePieces()
         {
@@ -83,9 +98,9 @@ namespace MatchThree
                 transform = { parent = transform }
             };
 
-            for (int i = 0; i < boardData.width; i++)
+            for (int i = 0; i < boardData.Width; i++)
             {
-                for (int j = 0; j < boardData.height; j++)
+                for (int j = 0; j < boardData.Height; j++)
                 {
                     GameObject gamePieceGO = Instantiate(GetRandomGamePiece(), Vector3.zero, Quaternion.identity);
 

@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15294488, g: 0.039248843, b: 0.16981131, a: 1}
+  m_Color: {r: 0.17254902, g: 0.09019608, b: 0.2784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -603,8 +603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e43d6e6db9798429744cfa15cd5eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalGamePieceCount: 0
   boardData: {fileID: 11400000, guid: 575f476bf6e26664780f69f99cc8f59a, type: 2}
   tilePrefab: {fileID: 2669362414313961005, guid: 9f1a7b902894565449851d81c0cb52d9, type: 3}
+  swapTime: 0.3
   gamePieces:
   - {fileID: 420711805857607147, guid: cb2cc30aab331cb4587c25c93f68ae4c, type: 3}
   - {fileID: 3188321857348175997, guid: 3187d0830e9c7f846ba606a2da49915c, type: 3}

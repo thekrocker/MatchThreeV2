@@ -18,11 +18,11 @@ namespace MatchThree
 
         private void SetupCamera()
         {
-            _cam.transform.position = new Vector3((float)(boardData.width - 1) / 2, (float) (boardData.height - 1) / 2, -10f);
+            _cam.transform.position = new Vector3((float)(boardData.Width - 1) / 2, (float) (boardData.Height - 1) / 2, -10f);
             var aspectRatio = (float) Screen.width / (float) Screen.height;
 
-            var verticalSize = boardData.height / 2f + (float)boardData.boardMargin;
-            var horizontalSize = (boardData.width / 2f + (float)boardData.boardMargin) / aspectRatio;
+            var verticalSize = boardData.Height / 2f + (float)boardData.boardMargin;
+            var horizontalSize = (boardData.Width / 2f + (float)boardData.boardMargin) / aspectRatio;
             _cam.orthographicSize = (verticalSize > horizontalSize) ? verticalSize : horizontalSize;
         }
     }
