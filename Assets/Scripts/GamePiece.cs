@@ -1,13 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
+using MatchThree.Utility;
 using UnityEngine;
 
 namespace MatchThree
 {
     public class GamePiece : MonoBehaviour
     {
+        [Header("Match Value")] 
+        [SerializeField] private Constants.EMatchValue matchValue;
+
+        
+        [Header("Coordinates")]
         public int xIndex;
         public int yIndex;
 
